@@ -1,7 +1,5 @@
 package com.AOA.dto;
 
-import com.AOA.model.Department;
-
 import lombok.Data;
 
 @Data

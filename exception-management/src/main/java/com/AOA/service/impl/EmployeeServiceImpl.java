@@ -4,10 +4,14 @@ import java.util.Optional;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.expression.spel.ast.ValueRef.TypedValueHolderValueRef;
 import org.springframework.stereotype.Service;
 
 import com.AOA.dto.DtoDepartment;
 import com.AOA.dto.DtoEmployee;
+import com.AOA.exception.BaseException;
+import com.AOA.exception.ErrorMessage;
+import com.AOA.exception.MessageType;
 import com.AOA.model.Department;
 import com.AOA.model.Employee;
 import com.AOA.repository.EmployeeRepository;
@@ -25,7 +29,8 @@ public class EmployeeServiceImpl implements IEmployeeService{
 		
 		Optional<Employee> optional = employeeRepository.findById(id);
 		if(optional.isEmpty()) {
-			return null;
+			throw new BaseException(new ErrorMessage(MessageType.NO_RECORD_EXIST, id.toString()));
+			//return null;
 		}
 		
 		Employee employee = optional.get();
