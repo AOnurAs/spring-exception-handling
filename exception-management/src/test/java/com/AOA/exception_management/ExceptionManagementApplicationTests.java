@@ -2,7 +2,6 @@ package com.AOA.exception_management;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-import org.hibernate.sql.results.graph.entity.internal.BatchEntityInsideEmbeddableSelectFetchInitializer;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
